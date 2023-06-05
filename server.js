@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require("./db/connect")
+const connectDB = require("./db/connect");
 const ShortUrl = require('./models/shortUrl')
 const app = express();
 
@@ -10,6 +10,10 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/', async (req, res) => {
     const shortUrls = await ShortUrl.find()
     res.render('index', { shortUrls: shortUrls })
+})
+
+app.get('/decoded', async (req, res) => {
+    res.render('decoded')
 })
 
 app.use('/', require('./routes/urls'))

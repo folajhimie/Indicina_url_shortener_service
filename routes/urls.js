@@ -8,5 +8,7 @@ router.route('/shortUrls').post(urlController.shortUrls);
 
 router.route('/:shortUrl').get(urlController.shortUrl);
 
+router.route('/longUrls').post(urlController.getLongUrl);
+
 
 module.exports = router 
